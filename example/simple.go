@@ -6,16 +6,22 @@ import (
 	"time"
 )
 
+// dual pole electrical light switch or
+// tuya multi plug power strip with dps 1-8 (same gwId, same key)
 var conf2 = `[
     {"gwId":"1582850884f3eb30128e",
      "key":"XXXXXXXXXXX",
      "type":"Switch",
-     "name":"sw1" },
-    {"gwId":"86273325cc50e3c8fe2d",
+     "name":"sw1",
+     "dps": 1 },
+    {"gwId":"1582850884f3eb30128e",
      "key":"XXXXXXXXXXX",
      "type":"Switch",
-     "name":"sw2" }
+     "name":"sw2",
+     "dps": 2 }
      ]`
+
+//single pole electrical
 var conf1 = `[
     {"gwId":"1582850884f3eb30128e",
      "key":"XXXXXXXXXXX",

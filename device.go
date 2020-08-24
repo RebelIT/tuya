@@ -5,6 +5,7 @@
 package tuya
 
 import (
+   "strconv"
    "sync"
    "sync/atomic"
 )
@@ -38,6 +39,7 @@ type baseDevice struct {
    sync.Mutex
    typ  string
    name string
+   dps  string
    app  *Appliance
    // Publish subscribe
    subscribers map[int64]SyncChannel
@@ -48,6 +50,7 @@ func (b *baseDevice) _configure(typ string, a *Appliance, c *configurationData) 
    b.typ = typ
    b.app = a
    b.name = c.Name
+   b.dps = strconv.Itoa(c.Dps)
    b.subscribers = make(map[int64]SyncChannel)
 }
 

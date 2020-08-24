@@ -33,7 +33,7 @@ type ISwitch struct {
 
 func (s *ISwitch) Set(on bool) error {
    m := s.app.makeBaseMsg()
-   m["dps"] = map[string]bool{"1": on}
+   m["dps"] = map[string]bool{s.dps: on}
    return s.app.SendEncryptedCommand(CodeMsgSet, m)
 }
 func (s *ISwitch) SetW(on bool, delay time.Duration) (bool, error) {

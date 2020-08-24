@@ -30,7 +30,8 @@ type configurationData struct {
    GwId string
    Type string
    Key  string
-   Ip   string //optionnel
+   Ip   string //optional
+   Dps  int //optional for 1 prong electrical
 }
 
 // the appliance proxies the hardware device
@@ -99,6 +100,9 @@ func (dm *DeviceManager) configure(jdata string) {
    for _, c := range conf {
       if len(c.GwId) == 0 {
          log.Fatal("Conf Id missing")
+      }
+      if c.Dps == 0 { //if not defined in config default to dps1
+         c.Dps = 1
       }
       d := dm.getAppliance(c.GwId)
       d.GwId = c.GwId

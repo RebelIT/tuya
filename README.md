@@ -36,6 +36,8 @@ Create json configuration, thanks to keys and id collected previously (Use backq
 
 ```go
 conf := `[{"gwId":"1582850884f3eb30128e", "key":"XXXXXXX", "type":"Switch", "name":"s1"}]`
+//optional json elem "dps": 1|2|3|...
+//optional json elem "ip": 192.168.1.20
 //multiline data
 conf := `[
  {"gwId":"1582850884f3eb30128e", 
